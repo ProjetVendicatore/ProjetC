@@ -10,6 +10,7 @@ bool running;
 
 void GameLoop(float _timeDelta)
 {
+    printf("delta time = %f", _timeDelta);
 }
 
 void HandleEvent()
