@@ -6,16 +6,19 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-#include <SDL2/SDL.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
 
 /* On inclut les libs supplémentaires */
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
+
 
 // Taille de la fenêtre : 800x480 pixels
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 480
 
 //On va ajouter toutes les autres variables sur lequels on veut intéragir(speed ,damages etc)
+#define ATTACK 50
+#define LIFE 500
 #endif

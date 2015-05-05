@@ -1,5 +1,6 @@
 
 #include "prototypes.h"
+#include "defs.h"
 
 SDL_Window *screen;
 SDL_Renderer *renderer;

@@ -11,7 +11,7 @@ void gestionInputs(Input *input)
  void getInput(Input *input)
  {
      SDL_Event event;
-    /* On gere ici la queu d'evenement avec des switch
+    /* On gere ici la queue d'evenement avec des switch
     On decide d'utiliser seulement les clic de souris (droite et gauche)
     Et 4 touches : un pour pause , 3 pour des sorts/actions
     */
@@ -20,7 +20,7 @@ void gestionInputs(Input *input)
         switch (event.type)
         {
             case SDL_QUIT:
-                exit(0)
+                exit(0);
             break;
     //ici on fait un switch entre nos 4 touches via key.sym (ID de la touche)
         //Cas ou la touche est enfoncer
@@ -58,7 +58,7 @@ void gestionInputs(Input *input)
             break;
 
             case SDL_MOUSEBUTTONDOWN:
-                switch (event.button)
+                switch (event.type)
                 {
                 //Clik gauche
                 case SDL_BUTTON(1):
@@ -71,7 +71,7 @@ void gestionInputs(Input *input)
                 break;
 
             case SDL_MOUSEBUTTONUP:
-                switch (event.button)
+                switch (event.type)
                 {
                 //Clik gauche
                 case SDL_BUTTON(1):

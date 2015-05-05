@@ -7,7 +7,7 @@
 
 #include "structs.h"
 
-/* Catalogue des prototypes des fonctions utilisées.
+// Catalogue des prototypes des fonctions utilisées.
 
 
 extern void cleanup(void);
