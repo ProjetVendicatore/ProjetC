@@ -87,4 +87,13 @@ void cleanup()
 
     //On quitte la SDL
     SDL_Quit();
+
+    //Nettoie la map
+    cleanMaps();
+}
+
+
+void loadGame()
+{
+    initMaps();
 }
