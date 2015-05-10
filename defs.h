@@ -19,12 +19,4 @@
 
 //On va ajouter toutes les autres constantes sur lequels on veut intéragir
 
-//Heros
-#define H_ATTACK
-
-//Ennemis
-#define E_ATTACK
-#define E_DEFENSE
-#define E_SPEED
-
 #endif

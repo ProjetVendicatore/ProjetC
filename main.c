@@ -1,6 +1,4 @@
-
 #include "prototypes.h"
-
 
 /* Déclaration des variables / structures utilisées par le jeu */
 Input input;

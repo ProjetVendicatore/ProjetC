@@ -18,4 +18,22 @@ typedef struct Map
     SDL_Texture *background;
 }
 Map;
+
+typedef struct Weapon
+{
+ int attack,attack_speed
+}
+Weapon;
+
+typedef struct Heros
+{
+    int *heros_attack ;
+    Weapon *heros_weapon ;
+}Heros;
+
+typedef struct Building
+{
+    int building_life ;
+    int building_def ;
+}
 #endif
