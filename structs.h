@@ -9,21 +9,18 @@
 typedef struct Input
 {
     int pause,firstspell,secondspell,thirdspell,leftclik,rightclik;
-}
-Input;
+}Input;
 
 typedef struct Map
 {
     //On defini ce qu'il sera utiliser comme élément visuel dans map
     SDL_Texture *background;
-}
-Map;
+}Map;
 
 typedef struct Weapon
 {
- int attack,attack_speed
-}
-Weapon;
+ int weapon_attack,weapon_attack_speed,weapon_speed;
+}Weapon;
 
 typedef struct Heros
 {
@@ -35,5 +32,12 @@ typedef struct Building
 {
     int building_life ;
     int building_def ;
-}
+}Building;
+
+typedef struct Projectile
+{
+    int projectile_damage,projectile_direction,projectile_speed,projectile_pos;
+
+}Projectile;
+
 #endif
