@@ -7,7 +7,3 @@ Building* create_building(int life,int def)
     b->building_life = life ;
     b->building_def = def ;
 }
-
-
-
-
