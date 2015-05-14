@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     // Initialisation de la SDL
     init("Le jeu qui n'avait pas de nom");
 
-    //Chargement des ressources
+    //Chargment des ressources
     loadGame();
 
     // Appelle la fonction cleanup à la fin du programme

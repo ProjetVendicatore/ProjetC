@@ -1,0 +1,9 @@
+diff a/Building.c b/Building.c	(rejected hunks)
+@@ -7,3 +7,7 @@
+     b->building_life = life ;
+     b->building_def = def ;
+ }
++
++
++
++
