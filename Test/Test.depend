@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1427467116 source:c:\users\ali\desktop\vraiprojet\test\main.c
-	<stdbool.h>
-	"sdl.h"
-	"ennemi.h"
-
