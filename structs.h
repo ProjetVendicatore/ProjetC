@@ -17,20 +17,17 @@ typedef struct Map
     SDL_Texture *background;
 }Map;
 
-typedef struct Weapon
+typedef struct Vector_2D
 {
-    int base_weapon_attack;
-    int base_weapon_attack_speed;
-    int weapon_attack;
-    int weapon_attack_speed;
-    int weapon_speed;
-}Weapon;
+    float x;
+    float y;
+}Vector_2D;
 
 typedef struct Heros
 {   int base_heros_attack;
-    int *heros_attack ;
-    Weapon *heros_weapon ;
-    Position init_heros_position;
+    int heros_attack ;
+    int heros_attack_speed;
+    float projectile_speed;
 }Heros;
 
 typedef struct Ennemi
@@ -39,33 +36,26 @@ typedef struct Ennemi
     int ennemi_attack;
     int base_ennemi_life;
     int ennemi_life;
-    Position init_ennemi_pos ;
-    Position next_ennemi_position;
-    char* ennemi_type;
-}
+    int ennemi_type;
+    Vector_2D init_ennemi_position;
+}Ennemi;
 
 typedef struct Building
 {
     int base_building_life;
-    int building_life ;
-    int base_building
-    int building_def ;
-    Position init_building_pos;
+    int *building_life ;
+    Vector_2D building_pos;
 }Building;
 
 typedef struct Projectile
 {
     int projectile_damage;
-    int projectile_direction;
-    int projectile_speed;
-    int projectile_time;
-    Position init_proj_pos,next_proj_pos;
+    float projectile_speed;
+    Vector_2D projectile_direction;
+    Vector_2D projectile_pos;
 
 }Projectile;
 
-typedef struct Position
-{
-    int x ,y;
-}Position;
+
 
 #endif
