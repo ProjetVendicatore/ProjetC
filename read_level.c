@@ -26,6 +26,7 @@ int read_level(char* level_number)
         {   case 'a':create_ennemi(create_vector(0,350),1);
         break;
             case 'b':create_ennemi(create_vector(0,450),2);
+        break;
         }
     };
 

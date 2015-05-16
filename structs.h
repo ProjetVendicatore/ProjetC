@@ -8,7 +8,12 @@
 
 typedef struct Input
 {
-    int pause,firstspell,secondspell,thirdspell,leftclik,rightclik;
+    int pause;
+    int firstspell;
+    int secondspell;
+    int thirdspell;
+    int leftclik ;
+    int rightclik;
 }Input;
 
 typedef struct Map
@@ -43,7 +48,7 @@ typedef struct Ennemi
 typedef struct Building
 {
     int base_building_life;
-    int *building_life ;
+    int building_life ;
     Vector_2D building_pos;
 }Building;
 

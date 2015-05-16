@@ -37,6 +37,7 @@ void menu1(Input* input){
         //Fermer l'application
         exit(0);
     }
+
 }
 
 // PAGE HELP

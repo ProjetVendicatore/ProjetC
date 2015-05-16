@@ -3,8 +3,6 @@
 
 void gestionInputs(Input *input)
 {
-    //On gère le clavier (on rajoutera plus tard la gestion
-    //des joysticks)
     getInput(input);
 }
 
