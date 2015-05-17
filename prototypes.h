@@ -29,7 +29,7 @@ extern SDL_Texture *getBackground();
 extern void cleanMaps();
 
 //Ennemi
-extern Ennemi* create_ennemi(Vector_2D pos,int type);
+extern Ennemi* create_ennemi(int posY,int type);
 extern void destroy_ennemi(Ennemi* e);
 
 
@@ -46,17 +46,16 @@ extern void destroy_building(Building* b);
 
 
 //Projectile
-extern Projectile* create_projectile(Vector_2D position,Vector_2D direction, float speed, int damage);
+extern Projectile* create_projectile(int posY, int posX, float dirX, float dirY, float speed, int damage);
 extern void destroy_projectile(Projectile* p);
 
 
 //Vector_2D
-extern Vector_2D* create_vector(float x ,float y);
-extern Vector_2D* vector_addition(Vector_2D vector1 , Vector_2D vector2);
-extern Vector_2D* vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
+extern Vector_2D vector_addition(Vector_2D vector1 , Vector_2D vector2);
+extern Vector_2D vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
 extern float vector_length(Vector_2D vector1);
-extern Vector_2D* vector_normalize(Vector_2D vector1);
-extern Vector_2D* vector_multiply(Vector_2D vector1,float coeff);
+extern Vector_2D vector_normalize(Vector_2D vector1);
+extern Vector_2D vector_multiply(Vector_2D vector1,float coeff);
 
 //Menu
 extern void menu1(Input *input);
@@ -68,7 +67,7 @@ extern void menuGame(Input *input);
 extern void menuBreak(Input *input);
 extern void Mouse();
 
-//Read_level
-extern int read_level(char* level_number);
+//Rect
+extern bool is_inside_rect(float posX, float posY, float rect_PosX, float rect_PosY, float rect_SizeX, float rect_SizeY);
 
 #endif

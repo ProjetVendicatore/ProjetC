@@ -1,4 +1,4 @@
-#include "prototypes.h"
+/* #include "prototypes.h"
 
 int read_level(char* level_number)
 {
@@ -23,9 +23,16 @@ int read_level(char* level_number)
     printf("%c", c);
 
     switch(c)
-        {   case 'a':create_ennemi(create_vector(0,350),1);
+        {   case 'a':
+            {
+          Vector_2D*  pos ;
+          pos create_vector(0,350);
+            create_ennemi(pos,1);
+        return 1 ;
+            }
         break;
             case 'b':create_ennemi(create_vector(0,450),2);
+            return 2;
         break;
         }
     };

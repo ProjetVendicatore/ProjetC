@@ -2,6 +2,7 @@
 #ifndef DEF_DEFS
 #define DEF_DEFS
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -25,6 +26,7 @@
 #define INIT_POS_Y_BUILDING 300.0
 
 //Ennemi
+#define INIT_ENNEMI_POS_X -10
 #define BASE_ENNEMI_DAMAGE_TYPE1 50
 #define BASE_ENNEMI_DAMAGE_TYPE2 50
 #define BASE_ENNEMI_DAMAGE_TYPE3 50
@@ -36,6 +38,9 @@
 #define BASE_ENNEMI_HEALTH_TYPE4 50
 
 //Heros
+#define INIT_HEROS_POS_X 700
+#define INIT_HEROS_POS_Y 400
+
 #define BASE_HEROS_DAMAGE 20
 #define COEFF_HEROS_UPGRADE_DAMAGE 50
 #define COEFF_HEROS_UPGRADE_ATTACK_SPEED 50

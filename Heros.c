@@ -6,6 +6,8 @@ Heros* create_heros(float proj_speed, int attack_speed )
     h->heros_attack = BASE_HEROS_DAMAGE;
     h->base_heros_attack = BASE_HEROS_DAMAGE;
     h->projectile_speed = proj_speed;
+    h->init_heros_pos.x = INIT_HEROS_POS_X;
+    h->init_heros_pos.y = INIT_HEROS_POS_Y;
     return h;
 }
 

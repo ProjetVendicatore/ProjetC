@@ -33,6 +33,7 @@ typedef struct Heros
     int heros_attack ;
     int heros_attack_speed;
     float projectile_speed;
+    Vector_2D init_heros_pos;
 }Heros;
 
 typedef struct Ennemi
@@ -43,6 +44,7 @@ typedef struct Ennemi
     int ennemi_life;
     int ennemi_type;
     Vector_2D init_ennemi_position;
+    bool ennemi_moving;
 }Ennemi;
 
 typedef struct Building

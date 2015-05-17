@@ -1,10 +1,12 @@
 #include"prototypes.h"
 
-Ennemi* create_ennemi(Vector_2D pos,int type)
+Ennemi* create_ennemi(int posY,int type)
 {
-    Ennemi* e=malloc(sizeof(Ennemi));
+    Ennemi* e = malloc(sizeof(Ennemi));
     e->ennemi_type=type;
-    e->init_ennemi_position=pos;
+    e->init_ennemi_position.x=INIT_ENNEMI_POS_X;
+    e->init_ennemi_position.y=posY;
+    e->ennemi_moving = true;
     if(type == 1) {
         e->base_ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE1;
         e->ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE1;
