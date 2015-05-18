@@ -12,7 +12,6 @@ Projectile* create_projectile(Vector_2D position,Vector_2D direction, float spee
     return p;
 }
 
-
 void destroy_projectile(Projectile* p)
 {
     free(p);

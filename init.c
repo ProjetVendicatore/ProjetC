@@ -5,7 +5,19 @@
 SDL_Window *screen;
 SDL_Renderer *renderer;
 
+void Init()
+{
+HP = 50;
+srand(time(NULL));
 
+spawnTimer = 0.0f;
+
+ennemiList = lList_create();
+bulletList = lList_create();
+
+lList_Show(ennemiList, "ennemi");
+UpdateHPText();
+}
 SDL_Renderer *getrenderer(void)
 {
     return renderer;
@@ -14,6 +26,18 @@ SDL_Renderer *getrenderer(void)
  //initialisation de la SDL2 et des libs
 void init(char *title)
 {
+
+    BASE_LIFE_BUILDING = 50;
+srand(time(NULL));
+
+spawnTimer = 0.0f;
+
+ennemiList = lList_create();
+bulletList = lList_create();
+
+lList_Show(ennemiList, "ennemi");
+UpdateHPText();
+
     screen = SDL_CreateWindow(title,
                                   SDL_WINDOWPOS_CENTERED,
                                   SDL_WINDOWPOS_CENTERED,

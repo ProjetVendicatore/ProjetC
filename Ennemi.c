@@ -1,4 +1,4 @@
-#include"prototypes.h"
+#include "prototypes.h"
 
 Ennemi* create_ennemi(Vector_2D pos,int type)
 {
