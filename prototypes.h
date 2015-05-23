@@ -44,8 +44,7 @@ extern void update_Ennemi(Ennemi* ennemi, float timeDelta);
 //Heros
 extern Heros* create_heros();
 extern void destroy_heros(Heros* h);
-extern void upgrade_heros_damage(Heros* h);
-extern void upgrade_heros_attack_speed(Heros h);
+extern void upgrade_heros_damage(Heros h);
 
 
 //Building
@@ -54,17 +53,18 @@ extern void destroy_building(Building* b);
 
 
 //Projectile
-extern Projectile* create_projectile(int posX,int posY ,float dirX, float dirY , float speed, int damage);
+extern Projectile* create_projectile(Vector_2D position,Vector_2D direction, float speed, int damage);
 extern void destroy_projectile(Projectile* p);
 extern void update_Projectile(Projectile* proj, float timeDelta);
 
 
 //Vector_2D
-extern Vector_2D create_vector(float x ,float y);
-extern Vector_2D vector_addition(Vector_2D vector1 , Vector_2D vector2);
-extern Vector_2D vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
-extern Vector_2D vector_normalize(Vector_2D _vector);
-extern Vector_2D vector_multiply(Vector_2D _Vector,float _value);
+extern Vector_2D* create_vector(float x ,float y);
+extern Vector_2D* vector_addition(Vector_2D vector1 , Vector_2D vector2);
+extern Vector_2D* vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
+extern float vector_length(Vector_2D vector1);
+extern Vector_2D* vector_normalize(Vector_2D vector1);
+extern Vector_2D* vector_multiply(Vector_2D vector1,float coeff);
 
 //Menu
 extern void menu1(Input *input);

@@ -22,16 +22,18 @@ typedef struct Map
     SDL_Texture *background;
 }Map;
 
-typedef struct Vector_2D Vector_2D ;
-struct Vector_2D
+typedef struct Vector_2D
 {
     float x;
     float y;
-};
+}Vector_2D;
 
 typedef struct Heros
 {   int base_heros_attack;
     int heros_attack ;
+    SDL_Texture* texture;
+    SDL_Surface* image;
+    int animX;
 }Heros;
 
 typedef struct Ennemi
@@ -44,6 +46,11 @@ typedef struct Ennemi
     Vector_2D ennemi_position;
     bool is_moving;
     float speed;
+    SDL_Texture* texture;
+    SDL_Surface* image;
+    int animX;
+    bool is_boss;
+
 }Ennemi;
 
 typedef struct Building
@@ -53,15 +60,16 @@ typedef struct Building
     Vector_2D building_pos;
 }Building;
 
-typedef struct Projectile Projectile;
-
-struct Projectile
+typedef struct Projectile
 {
-    int damage;
-    float speed;
-    Vector_2D direction;
-    Vector_2D position;
-};
+    int projectile_damage;
+    float projectile_speed;
+    Vector_2D projectile_direction;
+    Vector_2D projectile_pos;
+    SDL_Texture* texture;
+    SDL_Surface* image;
+
+}Projectile;
 
 
 typedef struct lNode lNode;
