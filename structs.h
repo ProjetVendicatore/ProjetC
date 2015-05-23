@@ -42,7 +42,9 @@ typedef struct Ennemi
     int base_ennemi_life;
     int ennemi_life;
     int ennemi_type;
-    Vector_2D init_ennemi_position;
+    Vector_2D ennemi_position;
+    bool is_moving;
+    float speed;
 }Ennemi;
 
 typedef struct Building
