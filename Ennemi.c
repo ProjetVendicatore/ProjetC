@@ -1,11 +1,13 @@
 #include "prototypes.h"
 
+//On creer un ennemi
 Ennemi* create_ennemi(Vector_2D pos,int type)
 {
     Ennemi* e=malloc(sizeof(Ennemi));
     e->ennemi_type=type;
     e->ennemi_position=pos;
     e->is_moving=true;
+    //On différencie 3 types d'ennemi , avec des stats différentes.
     if(type == 1) {
         e->speed = BASE_ENNEMI_SPEED_TYPE1;
         e->base_ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE1;
@@ -32,14 +34,15 @@ Ennemi* create_ennemi(Vector_2D pos,int type)
      }
 }
 
+//on detruit un ennemi
 void destroy_ennemi(Ennemi* e)
 {
     free(e);
     e=NULL;
 }
 
-
-void Update_Ennemi(Ennemi* ennemi, float timeDelta)
+//On actualise la position de l'ennemi ( fonction qui le fait bouger )
+void update_Ennemi(Ennemi* ennemi, float timeDelta)
 {
     if(ennemi != NULL)
     {

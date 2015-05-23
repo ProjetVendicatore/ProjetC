@@ -16,6 +16,13 @@ extern void init(char *);
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
 
+//Listes
+lList* lList_create();
+extern void destroy_lList(lList* _list);
+extern void lList_append(lList* _list, void* _newElem);
+extern void lList_prepend(lList* _list, void* _newElem);
+extern void lList_remove(lList* _list, void* _elem);
+extern void lList_Show(lList* _list, char* _type);
 
 //Draw
 extern void delay(unsigned int frameLimit);
@@ -31,6 +38,7 @@ extern void cleanMaps();
 //Ennemi
 extern Ennemi* create_ennemi(Vector_2D pos,int type);
 extern void destroy_ennemi(Ennemi* e);
+extern void update_Ennemi(Ennemi* ennemi, float timeDelta)
 
 
 //Heros
@@ -48,6 +56,7 @@ extern void destroy_building(Building* b);
 //Projectile
 extern Projectile* create_projectile(Vector_2D position,Vector_2D direction, float speed, int damage);
 extern void destroy_projectile(Projectile* p);
+extern void update_Projectile(Projectile* proj, float timeDelta)
 
 
 //Vector_2D

@@ -64,5 +64,18 @@ typedef struct Projectile
 }Projectile;
 
 
+typedef struct lNode
+{
+void* p_elem;
+lNode* p_next;
+}lNode;
+
+typedef struct lList
+{
+int elemCount;
+lNode* p_head;
+lNode* p_tail;
+}lList;
+
 
 #endif

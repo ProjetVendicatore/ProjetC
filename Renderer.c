@@ -49,3 +49,8 @@ SDL_BlitSurface(HPText,NULL, screenSurface, &HPTextPosition);
 SDL_UpdateWindowSurface( window );
 
 }
+
+//Renderer Ennemi
+
+
+
