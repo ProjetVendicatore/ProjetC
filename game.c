@@ -34,7 +34,7 @@ lList_Show(ennemiList, "ennemi");
 if(ennemiList != NULL)
 {
 lNode* ennemiNode = ennemiList->p_head;
-// Récupérer la tete
+// Récupérer la tête
 while(ennemiNode)
 {
 Ennemi* ennemi = (Ennemi*)ennemiNode->p_elem;
@@ -54,9 +54,9 @@ bulletNode = bulletNode->p_next;
 }
 }
 CheckForCollisions();
-// Parcours tout les ennemis et tout les projectile si ca match retirer des points de vie
-//si les points de vie sont a 0 retirer l'ennemi de la liste
-// De meme avec les projectiles ils disparaissent lors d'une collision et lorsqu'ils sortent de l'écranv
+// Parcours tous les ennemis et tous les projectiles si ça match retirer des points de vie
+//si les points de vie sont à 0 retirer l'ennemi de la liste
+// De même avec les projectiles, ils disparaissent lors d'une collision et lorsqu'ils sortent de l'écran
 // A faire
 }
 

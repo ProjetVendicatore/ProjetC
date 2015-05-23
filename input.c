@@ -9,8 +9,8 @@ void gestionInputs(Input *input)
  void getInput(Input *input)
  {
      SDL_Event event;
-    /* On gere ici la queue d'evenement avec des switch
-    On decide d'utiliser seulement les clic de souris (droite et gauche)
+    /* On gère ici la queue d'événement avec des switch
+    On décide d'utiliser seulement les clics de souris (droite et gauche)
     Et 4 touches : un pour pause , 3 pour des sorts/actions
     */
     while (SDL_PollEvent(&event))
@@ -21,11 +21,11 @@ void gestionInputs(Input *input)
                 exit(0);
             break;
     //ici on fait un switch entre nos 4 touches via key.sym (ID de la touche)
-        //Cas ou la touche est enfoncer
+        //Cas où la touche est enfoncée
             case SDL_KEYDOWN:
                 switch (event.key.keysym.sym)
                 {
-                    //On utilise ici SDL_SCANcode au lieu de SDLK pour eviter les problemes de clavier FR ou EN
+                    //On utilise ici SDL_SCANcode au lieu de SDLK pour éviter les problèmes de clavier FR ou EN
                 case SDL_SCANCODE_SPACE:
                     input->pause = 1;
 
@@ -38,7 +38,7 @@ void gestionInputs(Input *input)
                     default:break;
                 }
             break;
-        //Cas ou la touche est non enfoncer
+        //Cas où la touche est non enfoncée
             case SDL_KEYUP:
                 switch (event.key.keysym.sym)
                 {
@@ -58,10 +58,10 @@ void gestionInputs(Input *input)
             case SDL_MOUSEBUTTONDOWN:
                 switch (event.type)
                 {
-                //Clik gauche
+                //Clic gauche
                 case SDL_BUTTON(1):
                 input->leftclik = 1;
-                //Clik droit
+                //Clic droit
                 case SDL_BUTTON(3):
                 input->rightclik = 1;
                 default:break;
@@ -71,10 +71,10 @@ void gestionInputs(Input *input)
             case SDL_MOUSEBUTTONUP:
                 switch (event.type)
                 {
-                //Clik gauche
+                //Clic gauche
                 case SDL_BUTTON(1):
                 input->leftclik = 0;
-                //Clik droit
+                //Clic droit
                 case SDL_BUTTON(3):
                 input->rightclik = 0 ;
                 default:break;

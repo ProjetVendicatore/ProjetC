@@ -19,7 +19,7 @@ SDL_Delay(1);
 SDL_Texture *loadImage(char *name)
 {
 
-/* Charge les images avec SDL Image dans une SDL_Surface */
+// Charge les images avec SDL Image dans une SDL_Surface
 
 SDL_Surface *loadedImage = NULL;
 SDL_Texture *texture = NULL;
@@ -47,11 +47,11 @@ void drawImage(SDL_Texture *image, int x, int y)
 
 SDL_Rect dest;
 
-/* Règle le rectangle à dessiner selon la taille de l'image source */
+// Règle le rectangle à dessiner selon la taille de l'image source
 dest.x = x;
 dest.y = y;
 
-/* Dessine l'image entière sur l'écran aux coordonnées x et y */
+// Dessine l'image entière sur l'écran aux coordonnées x et y
 SDL_QueryTexture(image, NULL, NULL, &dest.w, &dest.h);
 SDL_RenderCopy(getrenderer(), image, NULL, &dest);
 

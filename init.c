@@ -63,14 +63,14 @@ UpdateHPText();
         exit(1);
     }
 
-    //On initialise SDL_TTF 2 qui gérera l'écriture de texte
+    //On initialise SDL_TTF 2 qui gèrera l'écriture de texte
     if (TTF_Init() < 0)
     {
         printf("Impossible d'initialiser SDL TTF: %s\n", TTF_GetError());
         exit(1);
     }
 
-    //On initialise SDL_Mixer 2, qui gérera la musique et les effets sonores
+    //On initialise SDL_Mixer 2, qui gèrera la musique et les effets sonores
     int flags = MIX_INIT_MP3;
     int initted = Mix_Init(flags);
     if ((initted & flags) != flags)
@@ -93,7 +93,7 @@ UpdateHPText();
 }
 
 
- //On libere la mémoire
+ //On libère la mémoire
 void cleanup()
 {
     //On quitte SDL_Mixer 2 et on décharge la mémoire

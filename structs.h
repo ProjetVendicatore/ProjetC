@@ -18,7 +18,7 @@ typedef struct Input
 
 typedef struct Map
 {
-    //On defini ce qu'il sera utiliser comme élément visuel dans map
+    //On définit ce qui sera utiliser comme élément visuel dans map
     SDL_Texture *background;
 }Map;
 

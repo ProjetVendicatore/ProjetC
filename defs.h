@@ -1,4 +1,4 @@
-//On met tout les includes ici , et il suffit juste d'inclure ce .h dans les autres.
+//On met tous les includes ici , et il suffit juste d'inclure ce .h dans les autres.
 #ifndef DEF_DEFS
 #define DEF_DEFS
 
