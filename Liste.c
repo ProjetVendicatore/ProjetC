@@ -30,7 +30,7 @@ void destroy_lList(lList* liste)
 //On ajoute un maillon dans la liste
 void lList_append(lList* liste, void* new_elem)
 {
-    if(_list != NULL)
+    if(liste != NULL)
     {
         lNode* newNode = malloc(sizeof(lNode));
         newNode->p_next = NULL;

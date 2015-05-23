@@ -4,13 +4,15 @@
 
 SDL_Window *screen;
 SDL_Renderer *renderer;
+lList* ennemiList ;
+lList* bulletList ;
 
 void Init()
 {
-HP = 50;
+
 srand(time(NULL));
 
-spawnTimer = 0.0f;
+float spawnTimer = 0.0f;
 
 ennemiList = lList_create();
 bulletList = lList_create();
@@ -27,13 +29,6 @@ SDL_Renderer *getrenderer(void)
 void init(char *title)
 {
 
-    BASE_LIFE_BUILDING = 50;
-srand(time(NULL));
-
-spawnTimer = 0.0f;
-
-ennemiList = lList_create();
-bulletList = lList_create();
 
 lList_Show(ennemiList, "ennemi");
 UpdateHPText();

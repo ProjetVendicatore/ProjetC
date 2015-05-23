@@ -1,19 +1,19 @@
 #include"prototypes.h"
 
-//On creer un projectile
-Projectile* create_projectile(Vector_2D position,Vector_2D direct, float speed, int damage)
+//On va creer un projectile
+
+Projectile* create_projectile(int posX, int posY, float dirX, float dirY, float speed, int damages)
 {
-    Projectile* p=malloc(sizeof(Projectile));
-
-    p->projectile_damage=damage;
-    p->projectile_speed=speed;
-    p->projectile_direction=direct;
-    p->projectile_direction=vector_normalize(p->projectile_direction);
-    p->projectile_pos=position;
-
-    return p;
+    Projectile* newProjectile = malloc(sizeof(Projectile));
+    newProjectile->position.x = posX;
+    newProjectile->position.y = posY;
+    newProjectile->direction.x = dirX;
+    newProjectile->direction.y = dirY;
+    newProjectile->direction = vector_normalize(newProjectile->direction);
+    newProjectile->speed = speed;
+    newProjectile->damage = damages;
+    return newProjectile;
 }
-
 //On detruit un projectile
 void destroy_projectile(Projectile* p)
 {
@@ -25,6 +25,6 @@ void update_Projectile(Projectile* proj, float timeDelta)
 {
     if(proj != NULL)
     {
-        proj->projectile_pos = vector_addition(proj->projectile_pos, vector_multiply(proj->projectile_direction, proj->projectile_speed * timeDelta));
+        proj->position = vector_addition(proj->position, vector_multiply(proj->direction, proj->speed * timeDelta));
     }
 }

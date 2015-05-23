@@ -1,5 +1,6 @@
 #include "prototypes.h"
 
+
 //on creer notre Heros
 Heros* create_heros()
 {
@@ -19,6 +20,6 @@ void destroy_heros(Heros* h)
 //Fonction qui permet d'up notre heros
 void upgrade_heros_damage(Heros* h)
 {
-    h.heros_attack = h.heros_attack + COEFF_HEROS_UPGRADE_DAMAGE ;
+    h->heros_attack = h->heros_attack + 2 ;
     return;
 }

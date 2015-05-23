@@ -1,11 +1,13 @@
 #include "prototypes.h"
-/* A mettre dans main.c
+lList* ennemiList ;
+lList* bulletList ;
+
 void Init()
 {
-HP = 50;
+
 srand(time(NULL));
 
-spawnTimer = 0.0f;
+float spawnTimer = 0.0f;
 
 ennemiList = lList_create();
 bulletList = lList_create();
@@ -13,7 +15,7 @@ bulletList = lList_create();
 lList_Show(ennemiList, "ennemi");
 UpdateHPText();
 }
-*/
+
 spawnTimer = 0.0f ;
 
 void GameLoop(float timeDelta)
@@ -38,7 +40,7 @@ lNode* ennemiNode = ennemiList->p_head;
 while(ennemiNode)
 {
 Ennemi* ennemi = (Ennemi*)ennemiNode->p_elem;
-Ennemi_Update(ennemi, _timeDelta);
+Ennemi_Update(ennemi, timeDelta);
 ennemiNode = ennemiNode->p_next;
 }
 }

@@ -22,11 +22,12 @@ typedef struct Map
     SDL_Texture *background;
 }Map;
 
-typedef struct Vector_2D
+typedef struct Vector_2D Vector_2D ;
+struct Vector_2D
 {
     float x;
     float y;
-}Vector_2D;
+};
 
 typedef struct Heros
 {   int base_heros_attack;
@@ -52,14 +53,15 @@ typedef struct Building
     Vector_2D building_pos;
 }Building;
 
-typedef struct Projectile
-{
-    int projectile_damage;
-    float projectile_speed;
-    Vector_2D projectile_direction;
-    Vector_2D projectile_pos;
+typedef struct Projectile Projectile;
 
-}Projectile;
+struct Projectile
+{
+    int damage;
+    float speed;
+    Vector_2D direction;
+    Vector_2D position;
+};
 
 
 typedef struct lNode lNode;
