@@ -31,8 +31,6 @@ typedef struct Vector_2D
 typedef struct Heros
 {   int base_heros_attack;
     int heros_attack ;
-    int heros_attack_speed;
-    float projectile_speed;
 }Heros;
 
 typedef struct Ennemi
@@ -64,11 +62,13 @@ typedef struct Projectile
 }Projectile;
 
 
-typedef struct lNode
+typedef struct lNode lNode;
+
+struct lNode
 {
-void* p_elem;
-lNode* p_next;
-}lNode;
+    void* p_elem;
+    lNode* p_next;
+};
 
 typedef struct lList
 {

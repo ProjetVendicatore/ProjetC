@@ -38,11 +38,11 @@ extern void cleanMaps();
 //Ennemi
 extern Ennemi* create_ennemi(Vector_2D pos,int type);
 extern void destroy_ennemi(Ennemi* e);
-extern void update_Ennemi(Ennemi* ennemi, float timeDelta)
+extern void update_Ennemi(Ennemi* ennemi, float timeDelta);
 
 
 //Heros
-extern Heros* create_heros(float proj_speed, int attack_speed );
+extern Heros* create_heros();
 extern void destroy_heros(Heros* h);
 extern void upgrade_heros_damage(Heros h);
 extern void upgrade_heros_attack_speed(Heros h);
@@ -56,7 +56,7 @@ extern void destroy_building(Building* b);
 //Projectile
 extern Projectile* create_projectile(Vector_2D position,Vector_2D direction, float speed, int damage);
 extern void destroy_projectile(Projectile* p);
-extern void update_Projectile(Projectile* proj, float timeDelta)
+extern void update_Projectile(Projectile* proj, float timeDelta);
 
 
 //Vector_2D
