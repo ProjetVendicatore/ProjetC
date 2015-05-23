@@ -20,6 +20,7 @@ bulletList = lList_create();
 lList_Show(ennemiList, "ennemi");
 UpdateHPText();
 }
+
 SDL_Renderer *getrenderer(void)
 {
     return renderer;
@@ -112,7 +113,3 @@ void cleanup()
 }
 
 
-void loadGame()
-{
-    initMaps();
-}

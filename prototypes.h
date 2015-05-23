@@ -60,11 +60,11 @@ extern void update_Projectile(Projectile* proj, float timeDelta);
 
 //Vector_2D
 extern Vector_2D* create_vector(float x ,float y);
-extern Vector_2D* vector_addition(Vector_2D vector1 , Vector_2D vector2);
-extern Vector_2D* vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
-extern float vector_length(Vector_2D vector1);
-extern Vector_2D* vector_normalize(Vector_2D vector1);
-extern Vector_2D* vector_multiply(Vector_2D vector1,float coeff);
+extern Vector_2D vector_addition(Vector_2D vector1 , Vector_2D vector2);
+extern Vector_2D vector_subtraction(Vector_2D vector1 , Vector_2D vector2);
+extern Vector_2D vector_normalize(Vector_2D _vector);
+extern Vector_2D vector_multiply(Vector_2D _Vector,float _value);
+
 
 //Menu
 extern void menu1(Input *input);

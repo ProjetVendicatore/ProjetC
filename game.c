@@ -2,7 +2,7 @@
 lList* ennemiList ;
 lList* bulletList ;
 
-void Init()
+void truc  ()
 {
 
 srand(time(NULL));
@@ -24,9 +24,9 @@ spawnTimer += timeDelta;
 if(spawnTimer > 2.0f)
 {
 spawnTimer -= 2.0f;
-int line = rand() % 6;
+float line = rand() % 6;
 int type = rand() % 2;
-Ennemi* newEnnemi = Ennemi_create((0, line * 80 + 40  ) , type+1);
+Ennemi* newEnnemi = create_ennemi((Vector_2D)(0, line * 80 + 40  ) , type+1);
 lList_append(ennemiList, newEnnemi);
 // Rajouter l'ennemi
 lList_Show(ennemiList, "ennemi");

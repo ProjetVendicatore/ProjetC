@@ -1,3 +1,23 @@
+#include "prototypes.h"
+SDL_Window* window;
+SDL_Renderer* renderer;
+lList* ennemiList ;
+lList* bulletList ;
+Vector_2D mousePosition;
+SDL_Rect HPTextPosition;
+SDL_Surface* HPText;
+int HP ;
+TTF_Font* police;
+
+void UpdateHPText()
+{
+    HP = 50 ;
+    char result[20];
+    sprintf(result,"HP : %d", HP);
+    SDL_Color color = {0, 0, 0};
+    HPText = TTF_RenderUTF8_Blended(police, result, color);
+}
+
 void Render()
 {
 //Get window surface
