@@ -76,3 +76,70 @@ void delay(unsigned int frameLimit)
         SDL_Delay(frameLimit - ticks);
     }
 }
+
+void drawHeros(SDL_Renderer *renderer, Heros* heros)
+{
+    //sert a enlever la couleur de fond
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    //drawRect(renderer, (int)heros->x, (int)heros->y, (int)heros->w, (int)heros->h);
+    int wText, hText;
+    //recuepre la taille de la texture
+    SDL_QueryTexture(heros->texture, NULL, NULL, &wText, &hText);
+
+    if(heros->is_shooting == true) {
+    //On defini le rectangle qu'on veut creer dans l'image
+    SDL_Rect source_rect = {heros->animX*HEROS_SHOOTING_T_WEIGHT, heros->animY*HEROS_SHOOTING_T_HEIGHT, HEROS_SHOOTING_T_WEIGHT, HEROS_SHOOTING_T_HEIGHT};
+    //On choisi le rectangle qui se situe sur l'ecran
+    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->h};
+
+    } else {
+    //On defini le rectangle qu'on veut creer dans l'image
+    SDL_Rect source_rect = {heros->animX*HEROS_T_WEIGHT, heros->animY*HEROS_T_HEIGHT, HEROS_T_WEIGHT, HEROS_T_HEIGHT};
+    //On choisi le rectangle qui se situe sur l'ecran
+    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->h};
+
+    }
+    SDL_Point center = {0, 0};
+    //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour heros)
+    SDL_RenderCopyEx(renderer, heros->texture, &srcrect, &dstrect, 0, &center, SDL_FLIP_NONE);
+
+}
+
+void drawEnnemi(SDL_Renderer *renderer, Ennemi* ennemi)
+{
+    //sert a enlever la couleur de fond
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    //drawRect(renderer, (int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h);
+    int wText, hText;
+    //recuepre la taille de la texture
+    SDL_QueryTexture(ennemi->texture, NULL, NULL, &wText, &hText);
+
+    if(ennemi->is_boss == true){
+        //On defini le rectangle qu'on veut creer dans l'image
+        SDL_Rect source_rect = {ennemi->animX*ENNEMI_BOSS_T_WEIGHT, ennemi->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
+        //On choisi le rectangle qui se situe sur l'ecran
+        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+
+    }else {
+        //On defini le rectangle qu'on veut creer dans l'image
+        SDL_Rect source_rect = {ennemi->animX*ENNEMI_T_WEIGHT, ennemi->animY*ENNEMI_T_HEIGHT, ENNEMI_T_WEIGHT, ENNEMI_T_HEIGHT};
+        //On choisi le rectangle qui se situe sur l'ecran
+        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+    }
+
+    SDL_Point center = {0, 0};
+    //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour ennemi)
+    SDL_RenderCopyEx(renderer, ennemi->texture, &srcrect, &dstrect, 0, &center, SDL_FLIP_NONE);
+
+}
+
+void drawProj(SDL_Renderer* renderer,Projectile* p){
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+    int wText, hText;
+    SDL_QueryTexture(ennemi->texture, NULL, NULL, &wText, &hText);
+    SDL_Rect source_rect = {ennemi->animX*ENNEMI_BOSS_T_WEIGHT, ennemi->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
+    SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+    SDL_BlitSurface(p->image,source_rect,)
+
+}

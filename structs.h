@@ -34,6 +34,10 @@ typedef struct Heros
     SDL_Texture* texture;
     SDL_Surface* image;
     int animX;
+    int animY;
+    int animTime;
+    int x,y,w,t;
+    bool is_shooting;
 }Heros;
 
 typedef struct Ennemi

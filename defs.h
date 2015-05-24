@@ -12,21 +12,31 @@
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
 
-// Taille de la fenêtre et des titles
+// Taille de la fenêtre et des titles et boucle d'animation
+#define ANIM_SPEED 6 // vitesse d'animation des sprites
+
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 480
 
-#define HEROS_T_HEIGHT 80
-#define HEROS_T_WEIGHT 60
+#define HEROS_T_HEIGHT 60
+#define HEROS_T_WEIGHT 50
+#define HEROS_SHOOTING_T_HEIGHT 80
+#define HEROS_SHOOTING_T_WEIGHT 70
+#define HEROS_ANIM_SHOOTING_LIMIT 8
+#define HEROS_ANIM_LIMIT 7
+
 
 #define PROJ_T_HEIGHT 80
 #define PROJ_T_WEIGHT 60
 
-#define ENNEMI_T_HEIGHT 80
+#define ENNEMI_T_HEIGHT 60
 #define ENNEMI_T_WEIGHT 60
-
-
-
+#define ENNEMI_BOSS_T_HEIGHT 80
+#define ENNEMI_BOSS_T_WEIGHT 80
+#define ENNEMI_ANIM_LIMIT_TYPE1 7
+#define ENNEMI_ANIM_LIMIT_TYPE2 7
+#define ENNEMI_ANIM_LIMIT_TYPE3 9
+#define ENNEMI_ANIM_LIMIT_BOSS 9
 
 
 //On va ajouter toutes les autres constantes
@@ -53,6 +63,7 @@
 #define BASE_ENNEMI_SPEED_TYPE4 30
 
 #define LIMIT_ENNEMI_X 100
+#define STARTING_ENNEMI_X 800
 
 //Heros
 #define BASE_HEROS_DAMAGE 20
@@ -60,6 +71,11 @@
 #define COEFF_HEROS_UPGRADE_ATTACK_SPEED 50
 #define COST_HEROS_UPGRADE_ATTACK 200
 #define COST_HEROS_UPGRADE_ATTACK_SPEED 200
+
+#define INIT_POS_X_HEROS 100
+#define INIT_POS_Y_HEROS 100
+
+
 
 
 #endif

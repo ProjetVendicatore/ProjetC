@@ -1,11 +1,13 @@
 #include "prototypes.h"
 
 //On creer un ennemi
-Ennemi* create_ennemi(Vector_2D pos,int type)
+//On rentre seulement le y de la pos , car X est fixe (bord de l'ecran)
+Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
 {
     Ennemi* e=malloc(sizeof(Ennemi));
     e->ennemi_type=type;
-    e->ennemi_position=pos;
+    e->ennemi_position.x=STARTING_ENNEMI_X;
+    e->ennemi_position.y=y;
     e->is_moving=true;
     e->animX=0;
     //On différencie 4 types d'ennemi , avec des stats différentes.
@@ -79,14 +81,87 @@ void destroy_ennemi(Ennemi* e)
 void update_Ennemi(Ennemi* ennemi, float timeDelta)
 {
     if(ennemi != NULL)
-    {
-        if(ennemi->is_moving == true)
-        {
-            ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
-            if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
+    { if (ennemi->ennemi_type == 1)
+        {   ennemi->animTime++;
+            if(ennemi->animTime > ANIM_SPEED)
             {
-                ennemi->ennemi_position.x= LIMIT_ENNEMI_X;
-                ennemi->is_moving = false;
+            ennemi->animTime = 0;
+            ennemi->animX++;
+            if(ennemi->animX >= ENNEMI_ANIM_LIMIT_TYPE1)
+            {
+                ennemi->animX = 0;
+            }
+        }
+            if(ennemi->is_moving == true)
+            {
+                ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
+                if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
+                {
+                    ennemi->ennemi_position.x= LIMIT_ENNEMI_X;
+                    ennemi->is_moving = false;
+                }
+            }
+        }
+
+        else if (ennemi->ennemi_type == 2)
+        {   ennemi->animTime++;
+            if(ennemi->animTime > ANIM_SPEED)
+            {
+            ennemi->animTime = 0;
+            ennemi->animX++;
+            if(ennemi->animX >= ENNEMI_ANIM_LIMIT_TYPE2)
+            {
+                ennemi->animX = 0;
+            }
+        }
+            if(ennemi->is_moving == true)
+            {
+                ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
+                if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
+                {
+                    ennemi->ennemi_position.x= LIMIT_ENNEMI_X;
+                    ennemi->is_moving = false;
+                }
+            }
+        } else if (ennemi->ennemi_type == 3)
+        {   ennemi->animTime++;
+            if(ennemi->animTime > ANIM_SPEED)
+            {
+            ennemi->animTime = 0;
+            ennemi->animX++;
+            if(ennemi->animX >= ENNEMI_ANIM_LIMIT_TYPE3)
+            {
+                ennemi->animX = 0;
+            }
+        }
+            if(ennemi->is_moving == true)
+            {
+                ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
+                if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
+                {
+                    ennemi->ennemi_position.x= LIMIT_ENNEMI_X;
+                    ennemi->is_moving = false;
+                }
+            }
+        } else
+        {   ennemi->animTime++;
+            if(ennemi->animTime > ANIM_SPEED)
+            {
+            ennemi->animTime = 0;
+            ennemi->animX++;
+            if(ennemi->animX >= ENNEMI_ANIM_LIMIT_BOSS)
+            {
+                ennemi->animX = 0;
+            }
+        }
+            if(ennemi->is_moving == true)
+            {
+                ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
+                if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
+                {
+                    ennemi->ennemi_position.x= LIMIT_ENNEMI_X;
+                    ennemi->is_moving = false;
+                }
             }
         }
     }

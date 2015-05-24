@@ -36,13 +36,13 @@ extern SDL_Texture *getBackground();
 extern void cleanMaps();
 
 //Ennemi
-extern Ennemi* create_ennemi(Vector_2D pos,int type);
+extern Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer);
 extern void destroy_ennemi(Ennemi* e);
 extern void update_Ennemi(Ennemi* ennemi, float timeDelta);
 
 
 //Heros
-extern Heros* create_heros();
+extern Heros* create_heros(SDL_Renderer* renderer);
 extern void destroy_heros(Heros* h);
 extern void upgrade_heros_damage(Heros h);
 
