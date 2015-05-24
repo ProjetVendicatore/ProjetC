@@ -1,7 +1,6 @@
 #include"prototypes.h"
 
 Map map;
-
 //On defini le background de la map
 void initMaps()
 {

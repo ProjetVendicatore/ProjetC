@@ -1,6 +1,6 @@
 #include "prototypes.h"
-SDL_Renderer* renderer;
 
+SDL_Renderer* renderer;
 
 void drawGame(void)
 {
@@ -9,7 +9,7 @@ void drawGame(void)
 drawImage(getBackground(), 0, 0);
 
 // Affiche l'écran
-SDL_RenderPresent(getrenderer());
+SDL_RenderPresent(renderer);
 
 // Délai pour laisser respirer le proc
 SDL_Delay(1);
@@ -29,7 +29,7 @@ loadedImage = IMG_Load(name);
 if (loadedImage != NULL)
 {
 // Conversion de l'image en texture
-texture = SDL_CreateTextureFromSurface(getrenderer(), loadedImage);
+texture = SDL_CreateTextureFromSurface(renderer, loadedImage);
 
 // On se débarrasse du pointeur vers une surface
 SDL_FreeSurface(loadedImage);
@@ -54,7 +54,7 @@ dest.y = y;
 
 /* Dessine l'image entière sur l'écran aux coordonnées x et y */
 SDL_QueryTexture(image, NULL, NULL, &dest.w, &dest.h);
-SDL_RenderCopy(getrenderer(), image, NULL, &dest);
+SDL_RenderCopy(renderer, image, NULL, &dest);
 
 }
 void delay(unsigned int frameLimit)
@@ -139,14 +139,15 @@ void drawEnnemi(SDL_Renderer *renderer, Ennemi* ennemi)
     }
 
 }
-/*
-void drawProj(SDL_Renderer* renderer,Projectile* p){
+
+
+void drawProj(SDL_Renderer* renderer,Projectile* p,SDL_Surface* screenSurface){
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     int wText, hText;
     SDL_QueryTexture(p->texture, NULL, NULL, &wText, &hText);
-    SDL_Rect source_rect = {p->animX*ENNEMI_BOSS_T_WEIGHT, p->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
-    SDL_Rect dest_rect = {(int)p->x, (int)p->y, (int)p->w, (int)p->h};
-    SDL_BlitSurface(p->image,source_rect,)
+    SDL_Rect* source_rect = {0, 0, PROJ_T_WEIGHT, PROJ_T_HEIGHT};
+    SDL_Rect* dest_rect = {(int)p->x, (int)p->y, (int)p->w, (int)p->t};
+    SDL_BlitSurface(p->image,source_rect,screenSurface,dest_rect);
 
-}*/
+}

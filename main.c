@@ -7,7 +7,7 @@ SDL_Renderer* renderer;
 bool running = true;
 lList* ennemiList;
 lList* bulletList;
-//float spawnTimer;
+float spawnTimer;
 Vector_2D mousePosition;
 TTF_Font* police;
 SDL_Surface* HPText;
@@ -59,11 +59,15 @@ int main(int argc, char *argv[])
     {
         return -1 ;
     }
-    window = SDL_CreateWindow("Un jeu beaucoup trop stylééé", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Un jeu beaucoup trop style", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         return -2;
     }
+
+    //on charge l'image du background
+    initMaps();
+    drawGame();
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == NULL)
@@ -71,14 +75,22 @@ int main(int argc, char *argv[])
         printf(SDL_GetError());
         return -3;
     }
+    /*
+    Init();
     Uint32 old_time, current_time;
     float timeDelta;
-
     current_time = SDL_GetTicks();
+
+    drawGame();
+
     while (running)
     {
+    old_time = current_time;
+    current_time = SDL_GetTicks();
+    timeDelta = (current_time - old_time) / 1000.0f;
+
     HandleEvents();
-    Init();
+
     GameLoop(timeDelta);
     Render();
     destroy_lList(ennemiList);
@@ -93,5 +105,7 @@ int main(int argc, char *argv[])
 
     }
       // On quitte
-    return(0);
+*/
+   // return(0);
 }
+

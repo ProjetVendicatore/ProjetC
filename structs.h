@@ -75,6 +75,7 @@ typedef struct Projectile
     Vector_2D projectile_pos;
     SDL_Texture* texture;
     SDL_Surface* image;
+    int x,y,w,t;
 
 }Projectile;
 

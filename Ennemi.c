@@ -80,7 +80,7 @@ void destroy_ennemi(Ennemi* e)
     e=NULL;
 }
 
-void Ennemi_Render(Ennemi* ennemi, SDL_Surface* dest)
+/* void Ennemi_Render(Ennemi* ennemi, SDL_Surface* dest)
 {
     if(ennemi != NULL)
     {
@@ -88,16 +88,16 @@ void Ennemi_Render(Ennemi* ennemi, SDL_Surface* dest)
         rect.x = ennemi->ennemi_position.x - ennemi->ennemi_dimention.x / 2;
         rect.y = ennemi->ennemi_position.y - ennemi->ennemi_dimention.y / 2;
         rect.w = ennemi->ennemi_dimention.x;
-        rect.h = ennemi->ennemi_dimention.y;
+        rect.t = ennemi->ennemi_dimention.y;
         SDL_FillRect(dest, &rect, SDL_MapRGB( dest->format, 0xFF, 0x00, 0x00 ));
 
         rect.y = ennemi->ennemi_position.y + ennemi->ennemi_dimention.y / 2 + 1;
-        rect.h = 2;
+        rect.t = 2;
         rect.w = ennemi->ennemi_dimention.x * ennemi->ennemi_life / ennemi->base_ennemi_life;
         SDL_FillRect(dest, &rect, SDL_MapRGB( dest->format, 0x00, 0xFF, 0x70 ));
     }
 }
-
+*/
 
 //On actualise la position de l'ennemi ( fonction qui le fait bouger )
 void update_Ennemi(Ennemi* ennemi, float timeDelta)

@@ -3,19 +3,7 @@ lList* ennemiList ;
 lList* bulletList ;
 SDL_Renderer* renderer;
 
-void truc  ()
-{
 
-srand(time(NULL));
-
-float spawnTimer = 0.0f;
-
-ennemiList = lList_create();
-bulletList = lList_create();
-
-lList_Show(ennemiList, "ennemi");
-UpdateHPText();
-}
 void CheckForCollisions()
 {
     if(ennemiList != NULL && bulletList != NULL)

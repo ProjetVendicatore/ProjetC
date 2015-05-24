@@ -32,7 +32,7 @@ lNode* ennemiNode = ennemiList->p_head;
 while(ennemiNode)
 {
 Ennemi* ennemi = (Ennemi*)ennemiNode->p_elem;
-Ennemi_Render(ennemi, screenSurface);
+drawEnnemi(renderer,ennemi);
 ennemiNode = ennemiNode->p_next;
 }
 }
@@ -43,7 +43,7 @@ lNode* bulletNode = bulletList->p_head;
 while(bulletNode)
 {
 Projectile* projectile = (Projectile*)bulletNode->p_elem;
-Projectile_Render(projectile, screenSurface);
+drawProj(renderer,projectile,screenSurface);
 bulletNode = bulletNode->p_next;
 }
 }

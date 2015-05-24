@@ -34,6 +34,7 @@ extern SDL_Texture *loadImage(char *name);
 extern void drawImage(SDL_Texture *image, int x, int y);
 
 //Map
+extern void map1();
 extern void initMaps();
 extern SDL_Texture *getBackground();
 extern void cleanMaps();
