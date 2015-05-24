@@ -17,23 +17,23 @@ void Mouse(){
 }
 
 // MENU 1
-void menu1(Input* input){
+void menuStart(){
     Mouse();
     //Chargement de l'image
-    loadImage("graphics/Menu1.png");
+    loadImage("graphics/MenuStart.png");
 
     //Si on appuie sur le bouton Play
-    if ((x > 300) && (x < 500) && (y > 150) && (y < 190) && input->leftclik == 1){
-        menu2(input);
+    if ((x > 300) && (x < 500) && (y > 150) && (y < 190) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
+        menuGame();
 
     }
     //Si on appuie sur le bouton Help
-    if ((x > 300) && (x < 500) && (y > 220) && (y < 260) && input->leftclik == 1){
-        menuHelp(input);
+    if ((x > 300) && (x < 500) && (y > 220) && (y < 260) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
+        menuHelp();
 
     }
     //Si on appuie sur le bouton Quit
-    if ((x > 300) && (x < 500) && (y > 290) && (y < 330) && input->leftclik == 1){
+    if ((x > 300) && (x < 500) && (y > 290) && (y < 330) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
         //Fermer l'application
         exit(0);
     }
@@ -41,68 +41,43 @@ void menu1(Input* input){
 }
 
 // PAGE HELP
-void menuHelp(Input* input){
+void menuHelp(){
     Mouse();
-    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && input->leftclik == 1)){
+    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
         //Chargement de l'image
         loadImage("graphics/MenuHelp.png");
     }
-    menu1(input);
-}
-// MENU 2
-void menu2(Input* input){
-    Mouse();
-    //Chargement de l'image
-    loadImage("graphics/Menu2.png");
-
-    //Si on appuie sur le bouton 1
-    if ((x > 5) && (x < 10) && (y > 5) && (y < 10) && input->leftclik == 1){
-        // Option de personnalisation 1
-
-    }
-    //Si on appuie sur le bouton 2
-    if ((x > 15) && (x < 20) && (y > 15) && (y < 20) && input->leftclik == 1){
-        // Option de personnalisation 1
-
-    }
-    //Si on appuie sur le bouton 3
-    if ((x > 25) && (x < 30) && (y > 25) && (y < 30) && input->leftclik == 1){
-        // Option de personnalisation 1
-
-    }
-    //Si on appuie sur le bouton Play
-    if ((x > 500) && (x < 700) && (y > 410) && (y < 440) && input->leftclik == 1){
-        // Lancer le jeu
-        menuGame(input);
-    }
+    menuStart();
 }
 
 // MENU JEU
-void menuGame(Input* input){
-    Mouse();
-
+void menuGame(){
+    while (!((x > 0) && (x < 200) && (y > 450) && (y < 480) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
+        Mouse();
+    }
+    menuBreak();
 }
 // PAGE GOOD GAME
-void menuWin(Input* input){
-    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && input->leftclik == 1)){
+void menuWin(){
+    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
         //Chargement de l'image
         loadImage("graphics/MenuWin.png");
     }
-    menu2(input);
+    menuGame();
 }
 // PAGE GAME OVER
-void menuLose(Input* input){
-    while (!(input->leftclik == 1)){
+void menuLose(){
+    while (!(event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
         //Chargement de l'image
         loadImage("graphics/MenuLose.png");
     }
-    menu1(input);
+    menuStart();
 }
 // Gestion de la pause
-void menuBreak(Input* input){
-    while (!(input->leftclik == 1)){
+void menuBreak(){
+    while (!(event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
         //Chargement de l'image
         loadImage("graphics/MenuBreak.png");
     }
-    menuGame(input);
+    menuGame();
 }
