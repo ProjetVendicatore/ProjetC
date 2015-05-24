@@ -1,4 +1,5 @@
 #include "prototypes.h"
+SDL_Renderer* renderer;
 
 
 void drawGame(void)
@@ -76,7 +77,6 @@ void delay(unsigned int frameLimit)
         SDL_Delay(frameLimit - ticks);
     }
 }
-
 void drawHeros(SDL_Renderer *renderer, Heros* heros)
 {
     //sert a enlever la couleur de fond
@@ -90,18 +90,21 @@ void drawHeros(SDL_Renderer *renderer, Heros* heros)
     //On defini le rectangle qu'on veut creer dans l'image
     SDL_Rect source_rect = {heros->animX*HEROS_SHOOTING_T_WEIGHT, heros->animY*HEROS_SHOOTING_T_HEIGHT, HEROS_SHOOTING_T_WEIGHT, HEROS_SHOOTING_T_HEIGHT};
     //On choisi le rectangle qui se situe sur l'ecran
-    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->h};
+    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->t};
+    SDL_Point center = {0, 0};
+    //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour heros)
+    SDL_RenderCopyEx(renderer, heros->texture, &source_rect, &dest_rect, 0, &center, SDL_FLIP_NONE);
 
     } else {
     //On defini le rectangle qu'on veut creer dans l'image
     SDL_Rect source_rect = {heros->animX*HEROS_T_WEIGHT, heros->animY*HEROS_T_HEIGHT, HEROS_T_WEIGHT, HEROS_T_HEIGHT};
     //On choisi le rectangle qui se situe sur l'ecran
-    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->h};
-
-    }
+    SDL_Rect dest_rect = {(int)heros->x, (int)heros->y, (int)heros->w, (int)heros->t};
     SDL_Point center = {0, 0};
     //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour heros)
-    SDL_RenderCopyEx(renderer, heros->texture, &srcrect, &dstrect, 0, &center, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(renderer, heros->texture, &source_rect, &dest_rect, 0, &center, SDL_FLIP_NONE);
+
+    }
 
 }
 
@@ -118,28 +121,32 @@ void drawEnnemi(SDL_Renderer *renderer, Ennemi* ennemi)
         //On defini le rectangle qu'on veut creer dans l'image
         SDL_Rect source_rect = {ennemi->animX*ENNEMI_BOSS_T_WEIGHT, ennemi->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
         //On choisi le rectangle qui se situe sur l'ecran
-        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->t};
+        SDL_Point center = {0, 0};
+        //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour ennemi)
+        SDL_RenderCopyEx(renderer, ennemi->texture, &source_rect, &dest_rect, 0, &center, SDL_FLIP_NONE);
 
     }else {
         //On defini le rectangle qu'on veut creer dans l'image
         SDL_Rect source_rect = {ennemi->animX*ENNEMI_T_WEIGHT, ennemi->animY*ENNEMI_T_HEIGHT, ENNEMI_T_WEIGHT, ENNEMI_T_HEIGHT};
         //On choisi le rectangle qui se situe sur l'ecran
-        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+        SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->t};
+
+        SDL_Point center = {0, 0};
+        //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour ennemi)
+        SDL_RenderCopyEx(renderer, ennemi->texture, &source_rect, &dest_rect, 0, &center, SDL_FLIP_NONE);
+
     }
 
-    SDL_Point center = {0, 0};
-    //Ici flip permet d'inverser les sprites (horinzontal ou vertical , ici pas besoin , pas besoin d'angle non plus pour ennemi)
-    SDL_RenderCopyEx(renderer, ennemi->texture, &srcrect, &dstrect, 0, &center, SDL_FLIP_NONE);
-
 }
-
+/*
 void drawProj(SDL_Renderer* renderer,Projectile* p){
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     int wText, hText;
-    SDL_QueryTexture(ennemi->texture, NULL, NULL, &wText, &hText);
-    SDL_Rect source_rect = {ennemi->animX*ENNEMI_BOSS_T_WEIGHT, ennemi->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
-    SDL_Rect dest_rect = {(int)ennemi->x, (int)ennemi->y, (int)ennemi->w, (int)ennemi->h};
+    SDL_QueryTexture(p->texture, NULL, NULL, &wText, &hText);
+    SDL_Rect source_rect = {p->animX*ENNEMI_BOSS_T_WEIGHT, p->animY*ENNEMI_BOSS_T_HEIGHT, ENNEMI_BOSS_T_WEIGHT, ENNEMI_BOSS_T_HEIGHT};
+    SDL_Rect dest_rect = {(int)p->x, (int)p->y, (int)p->w, (int)p->h};
     SDL_BlitSurface(p->image,source_rect,)
 
-}
+}*/

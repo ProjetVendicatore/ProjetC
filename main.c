@@ -2,11 +2,19 @@
 
 /* Déclaration des variables / structures utilisées par le jeu */
 Input input;
-SDL_Window *screen;
-SDL_Renderer *renderer;
-lList* ennemiList ;
-lList* bulletList ;
-bool running = true ;
+SDL_Window* window;
+SDL_Renderer* renderer;
+bool running = true;
+lList* ennemiList;
+lList* bulletList;
+//float spawnTimer;
+Vector_2D mousePosition;
+TTF_Font* police;
+SDL_Surface* HPText;
+SDL_Rect HPTextPosition;
+int HP;
+
+
 
 void HandleEvents()
 {
@@ -34,7 +42,7 @@ void HandleEvents()
         {
             if(event.button.button == 1)
             {
-                Projectile* newBullet = Projectile_create(580, 480/2, event.motion.x - 580, event.motion.y - 480/2, 300.0f, 5);
+                Projectile* newBullet = create_projectile(580, 480/2, event.motion.x - 580, event.motion.y - 480/2, 300.0f, 5,renderer );
                 lList_append(bulletList, newBullet);
 
                 lList_Show(bulletList, "bullet");
@@ -70,10 +78,10 @@ int main(int argc, char *argv[])
     while (running)
     {
     HandleEvents();
-    init();
+    Init();
     GameLoop(timeDelta);
-    Renderer();
-    lList_destroy(ennemiList);
+    Render();
+    destroy_lList(ennemiList);
     ennemiList = NULL;
 
     SDL_DestroyRenderer(renderer);

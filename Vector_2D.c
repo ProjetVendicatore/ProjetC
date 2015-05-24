@@ -5,7 +5,7 @@
 
 //Addition de deux vecteurs
 
-Vector_2D Vector2D_addition(Vector_2D Vector1, Vector_2D Vector2)
+Vector_2D vector_addition(Vector_2D Vector1, Vector_2D Vector2)
 {
     Vector_2D result;
     result.x = Vector1.x + Vector2.x;

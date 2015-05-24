@@ -54,7 +54,10 @@ typedef struct Ennemi
     SDL_Surface* image;
     int animX;
     bool is_boss;
-
+    Vector_2D ennemi_dimention;
+    int animTime;
+    int x,y,w,t;
+    int animY;
 }Ennemi;
 
 typedef struct Building
@@ -66,7 +69,7 @@ typedef struct Building
 
 typedef struct Projectile
 {
-    int projectile_damage;
+    int projectile_damages;
     float projectile_speed;
     Vector_2D projectile_direction;
     Vector_2D projectile_pos;

@@ -1,7 +1,6 @@
 #include "prototypes.h"
-
+SDL_Renderer* renderer;
 //On creer un ennemi
-//On rentre seulement le y de la pos , car X est fixe (bord de l'ecran)
 Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
 {
     Ennemi* e=malloc(sizeof(Ennemi));
@@ -18,12 +17,12 @@ Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
         e->ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE1;
         e->base_ennemi_life = BASE_ENNEMI_HEALTH_TYPE1;
         e->ennemi_life = BASE_ENNEMI_HEALTH_TYPE1;
-
+        e->ennemi_dimention.x= ENNEMI_T_WEIGHT ;
+        e->ennemi_dimention.y= ENNEMI_T_HEIGHT ;
         e->image = SDL_LoadBMP("graphics/ennemi_type1.png");
         SDL_SetColorKey( e->image, SDL_TRUE, SDL_MapRGB(e->image->format, 255, 0, 255));
         e->texture = SDL_CreateTextureFromSurface(renderer, e->image);
-
-        return e;
+        return e ;
 
      } else if ( type == 2)
      {  e->is_boss = false;
@@ -32,12 +31,12 @@ Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
         e->ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE2;
         e->base_ennemi_life = BASE_ENNEMI_HEALTH_TYPE2;
         e->ennemi_life = BASE_ENNEMI_HEALTH_TYPE2;
-
+        e->ennemi_dimention.x= ENNEMI_T_WEIGHT ;
+        e->ennemi_dimention.y= ENNEMI_T_HEIGHT ;
         e->image = SDL_LoadBMP("graphics/ennemi_type2.png");
         SDL_SetColorKey( e->image, SDL_TRUE, SDL_MapRGB(e->image->format, 255, 0, 255));
         e->texture = SDL_CreateTextureFromSurface(renderer, e->image);
-
-        return e;
+        return e ;
 
      } else if ( type == 3)
      {  e->is_boss = false;
@@ -46,12 +45,12 @@ Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
         e->ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE3;
         e->base_ennemi_life = BASE_ENNEMI_HEALTH_TYPE3;
         e->ennemi_life = BASE_ENNEMI_HEALTH_TYPE3;
-
+        e->ennemi_dimention.x= ENNEMI_T_WEIGHT ;
+        e->ennemi_dimention.y= ENNEMI_T_HEIGHT ;
         e->image = SDL_LoadBMP("graphics/ennemi_type3.png");
         SDL_SetColorKey( e->image, SDL_TRUE, SDL_MapRGB(e->image->format, 255, 0, 255));
         e->texture = SDL_CreateTextureFromSurface(renderer, e->image);
-
-        return e;
+        return e ;
 
      } else
      {  e->is_boss = true ;
@@ -60,14 +59,18 @@ Ennemi* create_ennemi(int y ,int type,SDL_Renderer* renderer)
         e->ennemi_attack = BASE_ENNEMI_DAMAGE_TYPE3;
         e->base_ennemi_life = BASE_ENNEMI_HEALTH_TYPE3;
         e->ennemi_life = BASE_ENNEMI_HEALTH_TYPE3;
-
+        e->ennemi_dimention.x= ENNEMI_T_WEIGHT ;
+        e->ennemi_dimention.y= ENNEMI_T_HEIGHT ;
         e->image = SDL_LoadBMP("graphics/Boss.png");
         SDL_SetColorKey( e->image, SDL_TRUE, SDL_MapRGB(e->image->format, 255, 0, 255));
         e->texture = SDL_CreateTextureFromSurface(renderer, e->image);
-
-        return e;
+        return e ;
      }
+
 }
+
+
+
 
 //on detruit un ennemi
 void destroy_ennemi(Ennemi* e)
@@ -76,6 +79,25 @@ void destroy_ennemi(Ennemi* e)
     free(e);
     e=NULL;
 }
+
+void Ennemi_Render(Ennemi* ennemi, SDL_Surface* dest)
+{
+    if(ennemi != NULL)
+    {
+        SDL_Rect rect;
+        rect.x = ennemi->ennemi_position.x - ennemi->ennemi_dimention.x / 2;
+        rect.y = ennemi->ennemi_position.y - ennemi->ennemi_dimention.y / 2;
+        rect.w = ennemi->ennemi_dimention.x;
+        rect.h = ennemi->ennemi_dimention.y;
+        SDL_FillRect(dest, &rect, SDL_MapRGB( dest->format, 0xFF, 0x00, 0x00 ));
+
+        rect.y = ennemi->ennemi_position.y + ennemi->ennemi_dimention.y / 2 + 1;
+        rect.h = 2;
+        rect.w = ennemi->ennemi_dimention.x * ennemi->ennemi_life / ennemi->base_ennemi_life;
+        SDL_FillRect(dest, &rect, SDL_MapRGB( dest->format, 0x00, 0xFF, 0x70 ));
+    }
+}
+
 
 //On actualise la position de l'ennemi ( fonction qui le fait bouger )
 void update_Ennemi(Ennemi* ennemi, float timeDelta)
@@ -166,4 +188,3 @@ void update_Ennemi(Ennemi* ennemi, float timeDelta)
         }
     }
 }
-

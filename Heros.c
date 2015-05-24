@@ -1,7 +1,7 @@
 #include "prototypes.h"
-
+SDL_Renderer* renderer ;
 //on creer notre Heros
-Heros* create_heros(SDL_Renderer* renderer)
+Heros* create_heros(SDL_Renderer* renderer )
 {
     Heros* h=malloc(sizeof(Heros));
     h->heros_attack = BASE_HEROS_DAMAGE;
@@ -9,12 +9,12 @@ Heros* create_heros(SDL_Renderer* renderer)
     h->image = SDL_LoadBMP("graphics/heros.png");
     SDL_SetColorKey( h->image, SDL_TRUE, SDL_MapRGB(h->image->format, 255, 0, 255));
     h->texture = SDL_CreateTextureFromSurface(renderer, h->image);
+    h->animX=0;
     h->x =INIT_POS_X_HEROS;
     h->y=INIT_POS_Y_HEROS;
     h->t=HEROS_T_HEIGHT;
     h->w=HEROS_T_WEIGHT;
     h->is_shooting = false;
-    h->animX=0;
     h->animY=0;
     h->animTime=0;
     return h;
@@ -23,17 +23,11 @@ Heros* create_heros(SDL_Renderer* renderer)
 //On detruit notre heros
 void destroy_heros(Heros* h)
 {
-    SDL_DestroyTexture(f->texture);
+    SDL_DestroyTexture(h->texture);
     free(h);
     h=NULL;
 }
 
-//Fonction qui permet d'up notre heros
-void upgrade_heros_damage(Heros* h)
-{
-    h->heros_attack = h.heros_attack + COEFF_HEROS_UPGRADE_DAMAGE ;
-    return;
-}
 
 void update_heros(Heros* h,float timeDelta){
     if (h->is_shooting == true) {
@@ -63,6 +57,3 @@ void update_heros(Heros* h,float timeDelta){
             }
         }
 }
-
-
-

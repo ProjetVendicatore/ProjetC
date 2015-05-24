@@ -4,7 +4,7 @@
 void gestionInputs(Input *input)
 {
     getInput(input);
-    handleInput(input);
+
 }
 
  void getInput(Input *input)
