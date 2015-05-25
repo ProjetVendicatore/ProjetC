@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     {
         return -1 ;
     }
-    window = SDL_CreateWindow("Un jeu beaucoup trop style", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Mega Shooter", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
     if (window == NULL)
     {
         return -2;
