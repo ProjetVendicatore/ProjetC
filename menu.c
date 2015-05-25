@@ -16,6 +16,10 @@ void Mouse(){
     }
 }
 
+//Les coordonnées du clic
+positionClic.x = event.button.x;
+positionClic.y = event.button.y;
+
 // MENU 1
 void menuStart(){
     Mouse();
@@ -23,17 +27,17 @@ void menuStart(){
     loadImage("graphics/MenuStart.png");
 
     //Si on appuie sur le bouton Play
-    if ((x > 300) && (x < 500) && (y > 150) && (y < 190) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
+    if ((event.button.x > 300) && (event.button.x < 500) && (event.button.y > 150) && (event.button.y < 190) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
         menuGame();
 
     }
     //Si on appuie sur le bouton Help
-    if ((x > 300) && (x < 500) && (y > 220) && (y < 260) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
+    if ((event.button.x > 300) && (event.button.x < 500) && (event.button.y > 220) && (event.button.y < 260) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
         menuHelp();
 
     }
     //Si on appuie sur le bouton Quit
-    if ((x > 300) && (x < 500) && (y > 290) && (y < 330) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
+    if ((event.button.x > 300) && (event.button.x < 500) && (event.button.y > 290) && (event.button.y < 330) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT){
         //Fermer l'application
         exit(0);
     }
@@ -43,7 +47,7 @@ void menuStart(){
 // PAGE HELP
 void menuHelp(){
     Mouse();
-    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
+    while (!((event.button.x > 500) && (event.button.x < 700) && (event.button.y > 410) && (event.button.y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
         //Chargement de l'image
         loadImage("graphics/MenuHelp.png");
     }
@@ -52,14 +56,20 @@ void menuHelp(){
 
 // MENU JEU
 void menuGame(){
-    while (!((x > 0) && (x < 200) && (y > 450) && (y < 480) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
+    text=TTF_RenderText_Blended(police, "Pause", );
+    positionText.x = ;
+    positionText.y = ;
+    SDL_BlitSurface(text, NULL, SDL_Surface* dst, &positionText);
+    SDL_Flip(ecran);
+    SDL_Delay(150);
+    while (!(event.type == SDL_KEYDOWN && event.button.button == SDL_SCANCODE_SPACE)){
         Mouse();
     }
     menuBreak();
 }
 // PAGE GOOD GAME
 void menuWin(){
-    while (!((x > 500) && (x < 700) && (y > 410) && (y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
+    while (!((event.button.x > 500) && (event.button.x < 700) && (event.button.y > 410) && (event.button.y < 440) && event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
         //Chargement de l'image
         loadImage("graphics/MenuWin.png");
     }
@@ -75,7 +85,7 @@ void menuLose(){
 }
 // Gestion de la pause
 void menuBreak(){
-    while (!(event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)){
+    while (!(event.type == SDL_KEYDOWN && event.button.button == SDL_SCANCODE_SPACE)){
         //Chargement de l'image
         loadImage("graphics/MenuBreak.png");
     }
