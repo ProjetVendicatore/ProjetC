@@ -12,7 +12,7 @@ void Init()
 srand(time(NULL));
 
 float spawnTimer = 0.0f;
-
+//on creer les listes
 ennemiList = lList_create();
 bulletList = lList_create();
 

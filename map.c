@@ -4,7 +4,7 @@ Map map;
 //On defini le background de la map
 void initMaps()
 {
-    map.background=loadImage("graphics/Background.png");
+    map.background=loadImage("bin/graphics/Background.png");
 }
 
 //Fonction pour accerder au background

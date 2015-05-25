@@ -23,7 +23,7 @@ Vector_2D vector_subtraction(Vector_2D vector1 , Vector_2D vector2)
 
 }
 
-
+//normalisation d'un vecteur (important pour les trajectoire)
 Vector_2D vector_normalize(Vector_2D Vector)
 {
     Vector_2D result;
@@ -33,7 +33,7 @@ Vector_2D vector_normalize(Vector_2D Vector)
     return result;
 }
 
-
+//Multiplication de deux vecteurs
 Vector_2D vector_multiply(Vector_2D Vector, float value)
 {
     Vector_2D result;
@@ -41,7 +41,7 @@ Vector_2D vector_multiply(Vector_2D Vector, float value)
     result.y = Vector.y * value;
     return result;
 }
-
+//on creer un vecteur
 Vector_2D* create_vector(float x ,float y)
 {
     Vector_2D* p=malloc(sizeof(Vector_2D));

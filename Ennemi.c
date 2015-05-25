@@ -79,7 +79,7 @@ void destroy_ennemi(Ennemi* e)
     free(e);
     e=NULL;
 }
-
+//on fait des ennemi carré pour essayer que ça marche
 /* void Ennemi_Render(Ennemi* ennemi, SDL_Surface* dest)
 {
     if(ennemi != NULL)
@@ -101,14 +101,16 @@ void destroy_ennemi(Ennemi* e)
 
 //On actualise la position de l'ennemi ( fonction qui le fait bouger )
 void update_Ennemi(Ennemi* ennemi, float timeDelta)
-{
+{//On check le type pour savoir quel sprite utilisé car le nombres de sprite pour l'animation n'est pa le meme pour tout les ennemis
     if(ennemi != NULL)
     { if (ennemi->ennemi_type == 1)
+    //AnimeTime permet de gerer a quel vitesse on charge la prochaine image de l'animation
         {   ennemi->animTime++;
             if(ennemi->animTime > ANIM_SPEED)
             {
             ennemi->animTime = 0;
             ennemi->animX++;
+            //Permet de faire la boucle de l'animation
             if(ennemi->animX >= ENNEMI_ANIM_LIMIT_TYPE1)
             {
                 ennemi->animX = 0;
@@ -117,6 +119,7 @@ void update_Ennemi(Ennemi* ennemi, float timeDelta)
             if(ennemi->is_moving == true)
             {
                 ennemi->ennemi_position.x -= ennemi->speed* timeDelta;
+                //On defini la limite que els ennemi peuvent atteindre
                 if(ennemi->ennemi_position.x  >= LIMIT_ENNEMI_X)
                 {
                     ennemi->ennemi_position.x= LIMIT_ENNEMI_X;

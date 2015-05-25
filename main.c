@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 
     //on charge l'image du background
     initMaps();
-    drawGame();
+    drawImage(loadImage("bin/graphics/Background.png"),0,0);
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == NULL)

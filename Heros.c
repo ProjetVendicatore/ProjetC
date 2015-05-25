@@ -30,8 +30,10 @@ void destroy_heros(Heros* h)
 
 
 void update_heros(Heros* h,float timeDelta){
+    //permet de charger soit l'animation d'attente , soit l'animation de shoot
+
     if (h->is_shooting == true) {
-            //AnimY*HEROS WEIGHT dans le draw
+            //AnimY*HEROS WEIGHT dans le draw, permet de choisir le sprite a charger
         h->animY = 1;
         h->animTime++;
         if(h->animTime > ANIM_SPEED)
